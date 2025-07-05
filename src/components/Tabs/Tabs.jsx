@@ -11,13 +11,16 @@ export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
               data-cy="Tab"
               className={tab.id === activeTab.id ? 'is-active' : ''}
             >
-              <a href={`#${tab.id}`} data-cy="TabLink">
-                onClick=
-                {() => {
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={e => {
+                  e.preventDefault();
                   if (tab.id !== activeTab.id) {
                     onTabSelected(tab.id);
                   }
                 }}
+              >
                 {tab.title}
               </a>
             </li>
